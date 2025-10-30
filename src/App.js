@@ -10,6 +10,7 @@ import { registerSoundfonts } from '@strudel/soundfonts';
 import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 import PreProcess from './Components/PreProcess';
+import ProcAndPlayB from './Components/ProcAndPlay';
 
 let globalEditor = null;
 
@@ -121,8 +122,8 @@ return (
                     <div className="col-md-4">
 
                         <nav>
-                            <PreProcess/>
-                            <button id="process_play" className="btn btn-outline-primary">Proc & Play</button>
+                            <PreProcess />
+                            <ProcAndPlayB />
                             <br />
                             <button id="play" className="btn btn-outline-primary">Play</button>
                             <button id="stop" className="btn btn-outline-primary">Stop</button>
