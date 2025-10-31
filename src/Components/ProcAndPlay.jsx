@@ -1,4 +1,4 @@
-function ProcAndPlayB() {
+function ProcAndPlay() {
     return (
         <>
             <button id="process" className="btn btn-outline-primary">Preprocess</button>
@@ -8,4 +8,4 @@ function ProcAndPlayB() {
   );
 }
 
-export default ProcAndPlayB;
+export default ProcAndPlay;
