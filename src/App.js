@@ -112,7 +112,7 @@ return (
                     <div className="col-lg-8">
                         <div className="card shadow-sm border-0 rounded-4 mb-4">
                             <div className="card-header bg-primary text-white fw-semibold">Code Editor</div>
-                            <div className="card-body overflow-auto" id="editor" style={{ Height: "75vh", maxHeight:"75vh" } } />
+                            <div className="card-body overflow-auto" id="editor" style={{ Height: "100vh", maxHeight:"100vh" } } />
                         </div>
                     </div>
                     <div className="col-lg-4">
