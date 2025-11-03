@@ -133,33 +133,45 @@ return (
                         Interactive live-coding demo
                     </p>
                 </header>
-                <div className="row">
-                    <PreProcess defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
-                    <div className="col-md-4">
-                        <nav>
-                            <ProcAndPlay />
-                            <br />
-                            <PlayAndStop onPlay={handlePlay} onStop={handleStop} />                     
-                        </nav>
+                <div className="row g-4">
+                    <div className="col-lg-8">
+                        <div className="card shadow-sm border-0 rounded-4 mb-4">
+                            <div className="card-header bg-primary text-white fw-semibold">Code Editor</div>
+                            <div className="card-body" id="editor" style={{ minHeight: "350px" }} />
+                        </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-                        <div id="editor" />
-                        <div id="output" />
+                    <div className="row">
+                        <PreProcess defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
+                        <div className="col-md-4">
+                            <nav>
+                                <ProcAndPlay />
+                                <br />
+                                <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
+                            </nav>
+                        </div>
                     </div>
-                    <div className="col-md-4">
-                        <OnButton />
-                        <HushButton /> 
-                        <Volume />
+                    <div className="row">
+                        <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
+                            <div id="editor" />
+                            <div id="output" />
+                        </div>
+                        <div className="col-md-4">
+                            <OnButton />
+                            <HushButton />
+                            <Volume />
 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <canvas id="roll"></canvas>
+                <canvas id="roll"></canvas>
+                </div>
         </main >
     </div >
 );
 
-
 }
+
+
+
+
+
