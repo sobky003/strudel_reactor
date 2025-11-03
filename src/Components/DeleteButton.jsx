@@ -9,6 +9,13 @@ function DeleteButton() {
         setSaves(stored);
     }, []);
 
+    const Delete = () => {
+        const updated = saves.filter((_, idx) => idx !== selectedIndex);
+
+        setSaves(updated);
+        localStorage.setItem("strudelSaves", JSON.stringify(updated));
+    };
+
   return (
       <div className="align-items-start">
           <select className="form-select mb-2" value={selectedIndex} onChange={(e) => setSelectedIndex(Number(e.target.value))}>
@@ -19,6 +26,7 @@ function DeleteButton() {
                   </option>
               ))}
           </select>
+          <button className="btn btn-warning w-100" onClick={Delete} disabled={selectedIndex === -1}>Delete Selected</button>
       </div>
   );
 }
