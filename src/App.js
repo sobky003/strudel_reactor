@@ -16,6 +16,7 @@ import OnButton from './Components/OnButton';
 import HushButton from './Components/HushButton';
 import Volume from './Components/Volume';
 import SaveButton from './Components/SaveButton';
+import LoadButton from './Components/LoadButton';
 
 let globalEditor = null;
 
@@ -152,7 +153,8 @@ return (
                             {/*<OnButton />*/}
                             {/*<HushButton />*/}
                             <Volume />
-                            <SaveButton code={songText } />
+                            <SaveButton code={songText} />
+                            <LoadButton onLoad={ setSongText} />
                         </div>
                     </div>
                 </div>
