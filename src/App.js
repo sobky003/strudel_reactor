@@ -140,31 +140,22 @@ return (
                             <div className="card-body" id="editor" style={{ minHeight: "350px" }} />
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="col-lg-4">
+                        <div className="card shadow-sm border-0 rounded-4 mb-3">
+                            <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
+                        </div>
                         <PreProcess defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
-                        <div className="col-md-4">
-                            <nav>
-                                <ProcAndPlay />
-                                <br />
-                                <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
-                            </nav>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-                            <div id="editor" />
-                            <div id="output" />
-                        </div>
-                        <div className="col-md-4">
+                        <div className="card-body d-flex flex-column gap-3">
+                            {/*<ProcAndPlay /> */}
+                            <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
                             <OnButton />
                             <HushButton />
                             <Volume />
-
                         </div>
                     </div>
                 </div>
                 <canvas id="roll"></canvas>
-                </div>
+            </div>
         </main >
     </div >
 );
