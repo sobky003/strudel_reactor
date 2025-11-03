@@ -15,6 +15,7 @@ import PlayAndStop from './Components/PlayAndStop';
 import OnButton from './Components/OnButton';
 import HushButton from './Components/HushButton';
 import Volume from './Components/Volume';
+import SaveButton from './Components/SaveButton';
 
 let globalEditor = null;
 
@@ -151,6 +152,7 @@ return (
                             {/*<OnButton />*/}
                             {/*<HushButton />*/}
                             <Volume />
+                            <SaveButton code={songText } />
                         </div>
                     </div>
                 </div>
