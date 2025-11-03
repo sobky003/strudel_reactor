@@ -2,11 +2,38 @@ import React, { useState } from 'react';
 
 function DeleteButton({saves,onDelete}) {
     const [selectedIndex, setSelectedIndex] = useState(-1);
+    const [message, setMessage] = useState('');
+    const [isError, setIsError] = useState(false);
 
     const Delete = () => {
+        if (selectedIndex === -1) {
+            setIsError(true);
+            setMessage('Please select a file to delete.');
+            return;
+        }
+
         const chosen = saves[selectedIndex];
+
+        if (!chosen) {
+            setIsError(true);
+            setMessage(' Selected file not found.');
+            return;
+        }
+
+        const confirmDelete = window.confirm(`Are you sure you want to delete "${chosen.name}"?`);
+
+        if (!confirmDelete) {
+            setIsError(false);
+            setMessage('Deletion cancelled.');
+            setTimeout(() => setMessage(''), 2000);
+            return;
+        }
+
         onDelete(chosen.name);
         setSelectedIndex(-1);
+        setIsError(false);
+        setMessage(`Deleted "${chosen.name}" successfully.`);
+        setTimeout(() => setMessage(''), 2000);
     };
 
   return (
@@ -20,6 +47,7 @@ function DeleteButton({saves,onDelete}) {
               ))}
           </select>
           <button className="btn btn-warning w-100" onClick={Delete} disabled={selectedIndex === -1}>Delete Selected</button>
+          {message && (<small className={`mt-2 d-block ${isError ? 'text-danger' : 'text-success'}`}>{message}</small>)}
       </div>
   );
 }
