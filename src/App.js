@@ -125,10 +125,14 @@ useEffect(() => {
 
 return (
     <div>
-        <h2>Strudel Demo</h2>
         <main>
-
             <div className="container-fluid">
+                <header className="text-center mb-4">
+                    <h2 className="fw-bold mb-2">Strudel Composer</h2>
+                    <p className="text-muted">
+                        Interactive live-coding demo
+                    </p>
+                </header>
                 <div className="row">
                     <PreProcess defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
                     <div className="col-md-4">
