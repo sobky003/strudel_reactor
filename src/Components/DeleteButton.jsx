@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-function DeleteButton() {
-    const [saves, setSaves] = useState([]);
+function DeleteButton({saves,onDelete}) {
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
-    useEffect(() => {
-        const stored = JSON.parse(localStorage.getItem("strudelSaves")) || [];
-        setSaves(stored);
-    }, []);
-
     const Delete = () => {
-        const updated = saves.filter((_, idx) => idx !== selectedIndex);
-
-        setSaves(updated);
-        localStorage.setItem("strudelSaves", JSON.stringify(updated));
+        const chosen = saves[selectedIndex];
+        onDelete(chosen.name);
+        setSelectedIndex(-1);
     };
 
   return (

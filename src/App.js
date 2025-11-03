@@ -119,7 +119,7 @@ return (
                             {/* <Volume />*/}
                             <SaveButton code={songText} onSave={handleSave} />
                             <LoadButton saves={saves} onLoad={setSongText} />
-                            <DeleteButton />
+                            <DeleteButton saves={saves} onDelete={handleDelete} />
                         </div>
                     </div>
                 </div>
