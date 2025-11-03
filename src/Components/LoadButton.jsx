@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 
-function LoadButton({ onLoad }) {
-    const [saves, setSaves] = useState([]);
+function LoadButton({ onLoad,saves }) {
     const [selectedIndex, setSelectedIndex] = useState(-1);
-
-    useEffect(() => {
-        const stored = JSON.parse(localStorage.getItem('strudelSaves') || '[]');
-        setSaves(stored);
-    }, []);
 
     const Load = () => {
         const chosen = saves[selectedIndex];

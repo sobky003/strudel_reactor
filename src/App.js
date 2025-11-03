@@ -36,6 +36,8 @@ export default function StrudelDemo() {
 
     const [songText, setSongText] = useState(stranger_tune)
 
+    const [saves, setSaves] = useState(JSON.parse(localStorage.getItem('strudelSaves')) || []
+    );
 
 useEffect(() => {
 
@@ -71,8 +73,6 @@ useEffect(() => {
             });
             
         document.getElementById('proc').value = stranger_tune
-        //SetupButtons()
-        //Proc()
     }
     globalEditor.setCode(songText)
 }, [songText]);
@@ -104,7 +104,7 @@ return (
                             <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
                            {/* <Volume />*/}
                             <SaveButton code={songText} />
-                            <LoadButton onLoad={setSongText} />
+                            <LoadButton saves={saves} onLoad={setSongText} />
                             <DeleteButton />
                         </div>
                     </div>
