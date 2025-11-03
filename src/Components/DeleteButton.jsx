@@ -4,6 +4,11 @@ function DeleteButton() {
     const [saves, setSaves] = useState([]);
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
+    useEffect(() => {
+        const stored = JSON.parse(localStorage.getItem("strudelSaves")) || [];
+        setSaves(stored);
+    }, []);
+
   return (
       <div className="align-items-start">
           <select className="form-select mb-2" value={selectedIndex} onChange={(e) => setSelectedIndex(Number(e.target.value))}>
