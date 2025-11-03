@@ -154,7 +154,7 @@ return (
                             {/*<HushButton />*/}
                             <Volume />
                             <SaveButton code={songText} />
-                            <LoadButton />
+                            <LoadButton onLoad={setSongText} />
                         </div>
                     </div>
                 </div>

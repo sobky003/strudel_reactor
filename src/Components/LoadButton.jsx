@@ -1,23 +1,33 @@
 import React, { useState, useEffect } from 'react';
 
 
-function LoadButton() {
+function LoadButton({ onLoad }) {
     const [saves, setSaves] = useState([]);
+    const [selectedIndex, setSelectedIndex] = useState(-1);
 
     useEffect(() => {
         const stored = JSON.parse(localStorage.getItem('strudelSaves') || '[]');
         setSaves(stored);
     }, []);
 
+    const Load = () => {
+        const chosen = saves[selectedIndex];
+        if (chosen) {
+            onLoad(chosen.code);
+        }
+    };
 
   return (
       <div className="align-items-start">
-          <option>Select a saved file</option>
-          {saves.map((s, idx) => (
-              <option key={idx} value={idx}>
-                  {s.name}
-              </option>
-          ))}
+          <select className="form-select mb-2" value={selectedIndex} onChange={(e) => setSelectedIndex(Number(e.target.value))}>
+              <option value={-1}>Select a saved file</option>
+              {saves.map((s, idx) => (
+                  <option key={idx} value={idx}>
+                      {s.name}
+                  </option>
+              ))}
+          </select>
+          <button className="btn btn-warning w-100" onClick={Load} disabled={selectedIndex === -1}>Load Selected</button>
       </div>
   );
 }
