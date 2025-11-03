@@ -112,23 +112,32 @@ return (
     <div>
         <main>
             <div className="container-fluid d-flex flex-column justify-content-between" style={{ height: "100vh", overflow: "hidden" }}>
+
+                {/*header*/ }
                 <header className="text-center">
                     <h2 className="fw-bold">Strudel Composer</h2>
                     <p className="text-muted">
                         Interactive live-coding demo
                     </p>
                 </header>
-                <div className="row h-60">
+
+                <div className="row h-100">
+
+                    {/* Left column: Code editor */}
                     <div className="col-lg-8">
                         <div className="card shadow-sm border-0 rounded-4 mb-4">
                             <div className="card-header bg-primary text-white fw-semibold">Code Editor</div>
-                            <div className="card-body overflow-auto" ref={editorRef} style={{ Height: "100vh", maxHeight:"100vh" } } />
+                            <div className="card-body overflow-auto" ref={editorRef} style={{ height: "80vh", maxHeight:"100vh" } } />
                         </div>
                     </div>
+
+                    {/* Right column: Controls */}
                     <div className="col-lg-4">
                         <div className="card shadow-sm border-0 rounded-4 ">
                             <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
                         </div>
+
+                        {/*Control components */}
                         <div className="card-body d-flex flex-column gap">
                             <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
                             <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
