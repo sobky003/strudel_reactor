@@ -146,8 +146,8 @@ return (
                         <div className="card shadow-sm border-0 rounded-4 mb-3">
                             <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
                         </div>
-                        <PreProcess defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
                         <div className="card-body d-flex flex-column gap-3">
+                            <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
                             {/*<ProcAndPlay /> */}
                             <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
                             {/*<OnButton />*/}
