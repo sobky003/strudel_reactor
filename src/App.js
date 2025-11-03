@@ -39,6 +39,15 @@ export default function StrudelDemo() {
     const [saves, setSaves] = useState(JSON.parse(localStorage.getItem('strudelSaves')) || []
     );
 
+    const handleSave = (name, code) => {
+        const updated = [...saves, { name, code }];
+        setSaves(updated);
+        localStorage.setItem('strudelSaves', JSON.stringify(updated));
+    };
+
+
+    
+
 useEffect(() => {
 
     if (!hasRun.current) {
