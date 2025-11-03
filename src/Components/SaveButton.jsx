@@ -31,7 +31,7 @@ function SaveButton({ code,onSave }) {
       <div className="align-items-start">
           <div className="d-flex align-items-center mb-2">
               <input type="text" className="form-control mb-2" placeholder="Enter save name..." value={fileName} onChange={(e) => setFileName(e.target.value)} />
-              <button className="btn btn-success w-50" onClick={Saving} >Save Current Code</button>
+              <button className="btn btn-outline-success w-50" onClick={Saving} >Save Current Code</button>
           </div>
           {message && (<small className={`mt-2 d-block ${isError ? 'text-danger' : 'text-success'}`}>{message}</small>)}
           
