@@ -15,7 +15,7 @@ function PlayAndStop({ onPlay, onStop }) {
     return (
         <div className="text-center mt-2">
             <button id="playStop" className={`${isPlaying ? "btn btn-outline-success" : "btn btn-outline-primary"}`} onClick={PlayStopClick}>
-                { isPlaying? " Stop Playback": " Play Tune" }
+                { isPlaying? " Stop Tune": " Play Tune" }
             </button>
         </div >
   );

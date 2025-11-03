@@ -25,6 +25,8 @@ const handleD3Data = (event) => {
 export default function StrudelDemo() {
 
     const hasRun = useRef(false);
+    const editorRef = useRef(null);
+    const canvasRef = useRef(null);
 
     const handlePlay = () => {
         globalEditor.evaluate()
@@ -61,13 +63,13 @@ export default function StrudelDemo() {
 
 useEffect(() => {
 
-    if (!hasRun.current) {
+    if (!hasRun.current && editorRef.current && canvasRef.current) {
         document.addEventListener("d3Data", handleD3Data);
         console_monkey_patch();
         hasRun.current = true;
         //Code copied from example: https://codeberg.org/uzu/strudel/src/branch/main/examples/codemirror-repl
             //init canvas
-            const canvas = document.getElementById('roll');
+            const canvas = canvasRef.current;
             canvas.width = canvas.width * 2;
             canvas.height = canvas.height * 2;
             const drawContext = canvas.getContext('2d');
@@ -76,7 +78,7 @@ useEffect(() => {
                 defaultOutput: webaudioOutput,
                 getTime: () => getAudioContext().currentTime,
                 transpiler,
-                root: document.getElementById('editor'),
+                root: editorRef.current,
                 drawTime,
                 onDraw: (haps, time) => drawPianoroll({ haps, time, ctx: drawContext, drawTime, fold: 0 }),
                 prebake: async () => {
@@ -92,7 +94,7 @@ useEffect(() => {
                 },
             });
             
-        document.getElementById('proc').value = stranger_tune
+       /* document.getElementById('proc').value = stranger_tune*/
     }
     globalEditor.setCode(songText)
 }, [songText]);
@@ -101,25 +103,25 @@ useEffect(() => {
 return (
     <div>
         <main>
-            <div className="container-fluid">
-                <header className="text-center mb-4">
-                    <h2 className="fw-bold mb-2">Strudel Composer</h2>
+            <div className="container-fluid d-flex flex-column justify-content-between" style={{ height: "100vh", overflow: "hidden" }}>
+                <header className="text-center">
+                    <h2 className="fw-bold">Strudel Composer</h2>
                     <p className="text-muted">
                         Interactive live-coding demo
                     </p>
                 </header>
-                <div className="row g-4">
+                <div className="row h-60">
                     <div className="col-lg-8">
                         <div className="card shadow-sm border-0 rounded-4 mb-4">
                             <div className="card-header bg-primary text-white fw-semibold">Code Editor</div>
-                            <div className="card-body overflow-auto" id="editor" style={{ Height: "100vh", maxHeight:"100vh" } } />
+                            <div className="card-body overflow-auto" ref={editorRef} style={{ Height: "100vh", maxHeight:"100vh" } } />
                         </div>
                     </div>
                     <div className="col-lg-4">
-                        <div className="card shadow-sm border-0 rounded-4 mb-3">
+                        <div className="card shadow-sm border-0 rounded-4 ">
                             <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
                         </div>
-                        <div className="card-body d-flex flex-column gap-3">
+                        <div className="card-body d-flex flex-column gap">
                             <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
                             <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
                             {/* <Volume />*/}
@@ -129,7 +131,7 @@ return (
                         </div>
                     </div>
                 </div>
-                <canvas id="roll"></canvas>
+                <canvas ref={canvasRef}></canvas>
             </div>
         </main >
     </div >
