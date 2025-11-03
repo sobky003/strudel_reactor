@@ -1,15 +1,11 @@
 ﻿import React, { useState } from 'react';
 
-function SaveButton({ code }) {
+function SaveButton({ code,onSave }) {
     const [fileName, setFileName] = useState('');
 
     const Saving = () => {
         const name = fileName.trim() || 'Untitled';
-
-        const saves = JSON.parse(localStorage.getItem('strudelSaves')) || [];
-        saves.push({ name, code })
-
-        localStorage.setItem('strudelSaves', JSON.stringify(saves));
+        onSave(name,code)
     };
    
   return (

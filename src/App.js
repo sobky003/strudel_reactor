@@ -116,8 +116,8 @@ return (
                         <div className="card-body d-flex flex-column gap-3">
                             <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
                             <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
-                           {/* <Volume />*/}
-                            <SaveButton code={songText} />
+                            {/* <Volume />*/}
+                            <SaveButton code={songText} onSave={handleSave} />
                             <LoadButton saves={saves} onLoad={setSongText} />
                             <DeleteButton />
                         </div>
