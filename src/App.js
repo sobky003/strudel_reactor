@@ -23,25 +23,31 @@ const handleD3Data = (event) => {
 };
 
 export default function StrudelDemo() {
-
+    //constants for referencing DOM elements
     const hasRun = useRef(false);
     const editorRef = useRef(null);
     const canvasRef = useRef(null);
 
+    //play code in editor
     const handlePlay = () => {
         globalEditor.evaluate()
     }
 
+    //stop code in editor
     const handleStop = () => {
         globalEditor.stop()
     }
 
+    //constant that hold current strudel
     const [songText, setSongText] = useState(stranger_tune)
 
+    //constant to hold the saved files from localStorage
     const [saves, setSaves] = useState(JSON.parse(localStorage.getItem('strudelSaves')) || []
     );
 
+    //method to save current file
     const handleSave = (name, code) => {
+        //checks if the name already exists and if yes replace its content
         const existing = saves.find((s) => s.name === name);
         let updated;
         if (existing) {
@@ -49,11 +55,14 @@ export default function StrudelDemo() {
         } else {
             updated = [...saves, { name, code }];
         }
+        //update react state and localStorage
         setSaves(updated);
         localStorage.setItem('strudelSaves', JSON.stringify(updated));
     };
 
+    //method to delete selected file
     const handleDelete = (name) => {
+        //removes the file from the list
         const updated = saves.filter((s) => s.name !== name);
         setSaves(updated);
         localStorage.setItem('strudelSaves', JSON.stringify(updated));
@@ -93,11 +102,10 @@ useEffect(() => {
                     await Promise.all([loadModules, registerSynthSounds(), registerSoundfonts()]);
                 },
             });
-            
-       /* document.getElementById('proc').value = stranger_tune*/
     }
+    //updates editor content whenever songText changes
     globalEditor.setCode(songText)
-}, [songText]);
+}, [songText]); //re-run when songText changes
 
 
 return (
