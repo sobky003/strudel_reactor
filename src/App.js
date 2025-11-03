@@ -45,6 +45,11 @@ export default function StrudelDemo() {
         localStorage.setItem('strudelSaves', JSON.stringify(updated));
     };
 
+    const handleDelete = (name) => {
+        const updated = saves.filter((s) => s.name !== name);
+        setSaves(updated);
+        localStorage.setItem('strudelSaves', JSON.stringify(updated));
+    };
 
     
 
