@@ -1,4 +1,4 @@
-import './App.css';
+﻿import './App.css';
 import { useEffect, useRef,useState } from "react";
 import { StrudelMirror } from '@strudel/codemirror';
 import { evalScope } from '@strudel/core';
@@ -14,6 +14,7 @@ import ProcAndPlay from './Components/ProcAndPlay';
 import PlayAndStop from './Components/PlayAndStop';
 import OnButton from './Components/OnButton';
 import HushButton from './Components/HushButton';
+import Volume from './Components/Volume';
 
 let globalEditor = null;
 
@@ -80,6 +81,7 @@ export default function StrudelDemo() {
 
     const [songText, setSongText] = useState(stranger_tune)
 
+
 useEffect(() => {
 
     if (!hasRun.current) {
@@ -145,6 +147,8 @@ return (
                     <div className="col-md-4">
                         <OnButton />
                         <HushButton /> 
+                        <Volume />
+
                     </div>
                 </div>
             </div>
