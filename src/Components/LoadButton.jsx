@@ -3,12 +3,30 @@ import React, { useState} from 'react';
 
 function LoadButton({ onLoad,saves }) {
     const [selectedIndex, setSelectedIndex] = useState(-1);
+    const [message, setMessage] = useState('');
+    const [isError, setIsError] = useState(false);
+
 
     const Load = () => {
-        const chosen = saves[selectedIndex];
-        if (chosen) {
-            onLoad(chosen.code);
+        if (selectedIndex === -1) {
+            setIsError(true);
+            setMessage(' Please select a file to load.');
+            return;
         }
+
+        const chosen = saves[selectedIndex];
+
+        if (!chosen || !chosen.code) {
+            setIsError(true);
+            setMessage('The selected file is empty or missing.');
+            return;
+        } else {
+            onLoad(chosen.code);
+            setIsError(false);
+            setMessage(` Loaded "${chosen.name}" successfully!`);
+            setTimeout(() => setMessage(''), 2000);
+        }
+
     };
 
   return (
@@ -22,6 +40,7 @@ function LoadButton({ onLoad,saves }) {
               ))}
           </select>
           <button className="btn btn-warning w-100" onClick={Load} disabled={selectedIndex === -1}>Load Selected</button>
+          {message && (<small className={`mt-2 d-block ${isError ? 'text-danger' : 'text-success'}`}>{message}</small>)}
       </div>
   );
 }
