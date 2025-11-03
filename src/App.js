@@ -14,6 +14,7 @@ import PlayAndStop from './Components/PlayAndStop';
 import Volume from './Components/Volume';
 import SaveButton from './Components/SaveButton';
 import LoadButton from './Components/LoadButton';
+import DeleteButton from './Components/DeleteButton';
 
 let globalEditor = null;
 
@@ -101,9 +102,10 @@ return (
                         <div className="card-body d-flex flex-column gap-3">
                             <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
                             <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
-                            <Volume />
+                           {/* <Volume />*/}
                             <SaveButton code={songText} />
                             <LoadButton onLoad={setSongText} />
+                            <DeleteButton />
                         </div>
                     </div>
                 </div>
