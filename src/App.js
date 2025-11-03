@@ -40,7 +40,13 @@ export default function StrudelDemo() {
     );
 
     const handleSave = (name, code) => {
-        const updated = [...saves, { name, code }];
+        const existing = saves.find((s) => s.name === name);
+        let updated;
+        if (existing) {
+            updated = saves.map((s) => (s.name === name ? { name, code } : s));
+        } else {
+            updated = [...saves, { name, code }];
+        }
         setSaves(updated);
         localStorage.setItem('strudelSaves', JSON.stringify(updated));
     };
