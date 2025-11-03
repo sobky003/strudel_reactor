@@ -38,15 +38,17 @@ function DeleteButton({saves,onDelete}) {
 
   return (
       <div className="align-items-start">
-          <select className="form-select mb-2" value={selectedIndex} onChange={(e) => setSelectedIndex(Number(e.target.value))}>
-              <option value={-1}>Select a saved file</option>
-              {saves.map((s, idx) => (
-                  <option key={idx} value={idx}>
-                      {s.name}
-                  </option>
-              ))}
-          </select>
-          <button className="btn btn-warning w-100" onClick={Delete} disabled={selectedIndex === -1}>Delete Selected</button>
+          <div className="d-flex align-items-center mb-2">
+              <select className="form-select mb-2" value={selectedIndex} onChange={(e) => setSelectedIndex(Number(e.target.value))}>
+                  <option value={-1}>Select a saved file</option>
+                  {saves.map((s, idx) => (
+                      <option key={idx} value={idx}>
+                          {s.name}
+                      </option>
+                  ))}
+              </select>
+              <button className="btn btn-outline-danger w-100" onClick={Delete} disabled={selectedIndex === -1}>Delete file</button>
+          </div>
           {message && (<small className={`mt-2 d-block ${isError ? 'text-danger' : 'text-success'}`}>{message}</small>)}
       </div>
   );

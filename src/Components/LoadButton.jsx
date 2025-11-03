@@ -40,7 +40,7 @@ function LoadButton({ onLoad,saves }) {
                       </option>
                   ))}
               </select>
-              <button className="btn btn-outline-success w-50" onClick={Load} disabled={selectedIndex === -1}>Load Selected</button>
+              <button className="btn btn-outline-success w-50" onClick={Load} disabled={selectedIndex === -1}>Load file</button>
           </div>
           {message && (<small className={`mt-2 d-block ${isError ? 'text-danger' : 'text-success'}`}>{message}</small>)}
       </div>
