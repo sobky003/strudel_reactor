@@ -69,7 +69,8 @@ export default function StrudelDemo() {
         localStorage.setItem('strudelSaves', JSON.stringify(updated));
     };
 
-    
+    // constant for theme state and persistence
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
 useEffect(() => {
 
@@ -121,7 +122,7 @@ return (
                         Interactive live-coding demo
                     </p>
                 </header>
-                <ToggleTheme />
+                <ToggleTheme theme={theme} onChange={setTheme} />
                 <div className="row h-100">
 
                     {/* Left column: Code editor */}
