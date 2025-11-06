@@ -72,6 +72,7 @@ export default function StrudelDemo() {
     // constant for theme state and persistence
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
+
 useEffect(() => {
 
     if (!hasRun.current && editorRef.current && canvasRef.current) {

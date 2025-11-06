@@ -10,15 +10,15 @@ function ToggleTheme({ theme, onChange }) {
     return (
           <>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="theme option" id="lightTheme" value="light" checked={theme === "light"} onChange={(e) => onChange(e.target.value)} />
-                      <label className="form-check-label" Htmlfor="lightTheme">
+                <input className="form-check-input" type="radio" name="themeOptions" id="lightTheme" value="light" checked={theme === "light"} onChange={(e) => onChange(e.target.value)} />
+                      <label className="form-check-label" htmlFor="lightTheme">
                           Light theme
                       </label>
               </div>
               <div className="form-check">
-                  <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked/>
-                      <label classname="form-check-label" Htmlfor="flexRadioDefault2">
-                          Default checked radio
+                <input className="form-check-input" type="radio" name="themeOptions" id="darkTheme" value="dark" checked={theme === "dark"} onChange={(e) => onChange(e.target.value)} />
+                      <label className="form-check-label" htmlFor="darkTheme">
+                          Dark theme
                       </label>
               </div>
           </>
