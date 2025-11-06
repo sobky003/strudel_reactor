@@ -123,7 +123,9 @@ return (
                         Interactive live-coding demo
                     </p>
                 </header>
-                <ToggleTheme theme={theme} onChange={setTheme} />
+                <div className="position-absolute top-0 end-0 p-3">
+                    <ToggleTheme theme={theme} onChange={setTheme} />
+                </div>
                 <div className="row h-100">
 
                     {/* Left column: Code editor */}
