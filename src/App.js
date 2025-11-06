@@ -15,6 +15,7 @@ import Volume from './Components/Volume';
 import SaveButton from './Components/SaveButton';
 import LoadButton from './Components/LoadButton';
 import DeleteButton from './Components/DeleteButton';
+import ToggleTheme from './Components/ToggleTheme';
 
 let globalEditor = null;
 
@@ -120,7 +121,7 @@ return (
                         Interactive live-coding demo
                     </p>
                 </header>
-
+                <ToggleTheme />
                 <div className="row h-100">
 
                     {/* Left column: Code editor */}

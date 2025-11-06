@@ -14,6 +14,9 @@ function LoadButton({ onLoad,saves }) {
         //passes code to parent to display onLoad
         onLoad(chosen.code);
 
+        //reset drop down
+        setSelectedIndex(-1);
+
         //display success feedback
         setIsError(false);
         setMessage(` Loaded "${chosen.name}" successfully!`)
