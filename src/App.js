@@ -114,7 +114,7 @@ useEffect(() => {
 return (
     <div>
         <main>
-            <div className="container-fluid d-flex flex-column justify-content-between" style={{ height: "100vh", overflow: "hidden" }}>
+            <div className="container-fluid d-flex flex-column justify-content-between overflow-auto" style={{ height: "100vh", overflow: "hidden" }}>
 
                 {/*header*/ }
                 <header className="text-center">
@@ -145,8 +145,10 @@ return (
                         {/*Control components */}
                         <div className="card-body d-flex flex-column gap">
                             <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
-                            <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
-                            {/* <Volume />*/}
+                            <div className="d-flex align-items-center gap-1">
+                                <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
+                                <Volume />
+                            </div>
                             <SaveButton code={songText} onSave={handleSave} />
                             <LoadButton saves={saves} onLoad={setSongText} />
                             <DeleteButton saves={saves} onDelete={handleDelete} />
