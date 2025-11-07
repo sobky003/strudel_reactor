@@ -1,5 +1,5 @@
-import './App.css';
-import { useEffect, useRef } from "react";
+﻿import './App.css';
+import { useEffect, useRef,useState } from "react";
 import { StrudelMirror } from '@strudel/codemirror';
 import { evalScope } from '@strudel/core';
 import { drawPianoroll } from '@strudel/draw';
@@ -9,6 +9,13 @@ import { getAudioContext, webaudioOutput, registerSynthSounds } from '@strudel/w
 import { registerSoundfonts } from '@strudel/soundfonts';
 import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
+import PreProcess from './Components/PreProcess';
+import PlayAndStop from './Components/PlayAndStop';
+import Volume from './Components/Volume';
+import SaveButton from './Components/SaveButton';
+import LoadButton from './Components/LoadButton';
+import DeleteButton from './Components/DeleteButton';
+import ToggleTheme from './Components/ToggleTheme';
 
 let globalEditor = null;
 
@@ -16,64 +23,65 @@ const handleD3Data = (event) => {
     console.log(event.detail);
 };
 
-export function SetupButtons() {
-
-    document.getElementById('play').addEventListener('click', () => globalEditor.evaluate());
-    document.getElementById('stop').addEventListener('click', () => globalEditor.stop());
-    document.getElementById('process').addEventListener('click', () => {
-        Proc()
-    }
-    )
-    document.getElementById('process_play').addEventListener('click', () => {
-        if (globalEditor != null) {
-            Proc()
-            globalEditor.evaluate()
-        }
-    }
-    )
-}
-
-
-
-export function ProcAndPlay() {
-    if (globalEditor != null && globalEditor.repl.state.started == true) {
-        console.log(globalEditor)
-        Proc()
-        globalEditor.evaluate();
-    }
-}
-
-export function Proc() {
-
-    let proc_text = document.getElementById('proc').value
-    let proc_text_replaced = proc_text.replaceAll('<p1_Radio>', ProcessText);
-    ProcessText(proc_text);
-    globalEditor.setCode(proc_text_replaced)
-}
-
-export function ProcessText(match, ...args) {
-
-    let replace = ""
-    if (document.getElementById('flexRadioDefault2').checked) {
-        replace = "_"
-    }
-
-    return replace
-}
-
 export default function StrudelDemo() {
+    //constants for referencing DOM elements
+    const hasRun = useRef(false);
+    const editorRef = useRef(null);
+    const canvasRef = useRef(null);
 
-const hasRun = useRef(false);
+    //play code in editor
+    const handlePlay = () => {
+        globalEditor.evaluate()
+    }
+
+    //stop code in editor
+    const handleStop = () => {
+        globalEditor.stop()
+    }
+
+    //constant that hold current strudel
+    const [songText, setSongText] = useState(stranger_tune)
+
+    //constant to hold the saved files from localStorage
+    const [saves, setSaves] = useState(JSON.parse(localStorage.getItem('strudelSaves')) || []
+    );
+
+    //method to save current file
+    const handleSave = (name, code) => {
+        //checks if the name already exists and if yes replace its content
+        const existing = saves.find((s) => s.name === name);
+        let updated;
+        if (existing) {
+            updated = saves.map((s) => (s.name === name ? { name, code } : s));
+        } else {
+            updated = [...saves, { name, code }];
+        }
+        //update react state and localStorage
+        setSaves(updated);
+        localStorage.setItem('strudelSaves', JSON.stringify(updated));
+    };
+
+    //method to delete selected file
+    const handleDelete = (name) => {
+        //removes the file from the list
+        const updated = saves.filter((s) => s.name !== name);
+        setSaves(updated);
+        localStorage.setItem('strudelSaves', JSON.stringify(updated));
+    };
+
+    // constant for theme state and persistence
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
 
 useEffect(() => {
 
-    if (!hasRun.current) {
+    if (!hasRun.current && editorRef.current && canvasRef.current) {
         document.addEventListener("d3Data", handleD3Data);
         console_monkey_patch();
         hasRun.current = true;
         //Code copied from example: https://codeberg.org/uzu/strudel/src/branch/main/examples/codemirror-repl
             //init canvas
-            const canvas = document.getElementById('roll');
+            const canvas = canvasRef.current;
             canvas.width = canvas.width * 2;
             canvas.height = canvas.height * 2;
             const drawContext = canvas.getContext('2d');
@@ -82,7 +90,7 @@ useEffect(() => {
                 defaultOutput: webaudioOutput,
                 getTime: () => getAudioContext().currentTime,
                 transpiler,
-                root: document.getElementById('editor'),
+                root: editorRef.current,
                 drawTime,
                 onDraw: (haps, time) => drawPianoroll({ haps, time, ctx: drawContext, drawTime, fold: 0 }),
                 prebake: async () => {
@@ -97,62 +105,65 @@ useEffect(() => {
                     await Promise.all([loadModules, registerSynthSounds(), registerSoundfonts()]);
                 },
             });
-            
-        document.getElementById('proc').value = stranger_tune
-        SetupButtons()
-        Proc()
     }
-
-}, []);
+    //updates editor content whenever songText changes
+    globalEditor.setCode(songText)
+}, [songText]); //re-run when songText changes
 
 
 return (
     <div>
-        <h2>Strudel Demo</h2>
         <main>
+            <div className="container-fluid d-flex flex-column justify-content-between overflow-auto" style={{ height: "100vh", overflow: "hidden" }}>
 
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-                        <label htmlFor="exampleFormControlTextarea1" className="form-label">Text to preprocess:</label>
-                        <textarea className="form-control" rows="15" id="proc" ></textarea>
-                    </div>
-                    <div className="col-md-4">
-
-                        <nav>
-                            <button id="process" className="btn btn-outline-primary">Preprocess</button>
-                            <button id="process_play" className="btn btn-outline-primary">Proc & Play</button>
-                            <br />
-                            <button id="play" className="btn btn-outline-primary">Play</button>
-                            <button id="stop" className="btn btn-outline-primary">Stop</button>
-                        </nav>
-                    </div>
+                {/*header*/ }
+                <header className="text-center">
+                    <h2 className="fw-bold">Strudel Composer</h2>
+                    <p className="text-muted">
+                        Interactive live-coding demo
+                    </p>
+                </header>
+                <div className="position-absolute top-0 end-0 p-3">
+                    <ToggleTheme theme={theme} onChange={setTheme} />
                 </div>
-                <div className="row">
-                    <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-                        <div id="editor" />
-                        <div id="output" />
-                    </div>
-                    <div className="col-md-4">
-                        <div className="form-check">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onChange={ProcAndPlay} defaultChecked />
-                            <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                p1: ON
-                            </label>
-                        </div>
-                        <div className="form-check">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onChange={ProcAndPlay} />
-                            <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                p1: HUSH
-                            </label>
+                <div className="row h-100">
+
+                    {/* Left column: Code editor */}
+                    <div className="col-lg-8">
+                        <div className="card shadow-sm border-0 rounded-4 mb-4">
+                            <div className="card-header bg-primary text-white fw-semibold">Code Editor</div>
+                            <div className="card-body overflow-auto" ref={editorRef} style={{ height: "80vh", maxHeight:"100vh" } } />
                         </div>
                     </div>
+
+                    {/* Right column: Controls */}
+                    <div className="col-lg-4">
+                        <div className="card shadow-sm border-0 rounded-4 ">
+                            <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
+                        </div>
+
+                        {/*Control components */}
+                        <div className="card-body d-flex flex-column gap">
+                            <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
+                            <div className="d-flex align-items-center gap-1">
+                                <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
+                                <Volume />
+                            </div>
+                            <SaveButton code={songText} onSave={handleSave} />
+                            <LoadButton saves={saves} onLoad={setSongText} />
+                            <DeleteButton saves={saves} onDelete={handleDelete} />
+                        </div>
+                    </div>
                 </div>
+                <canvas ref={canvasRef}></canvas>
             </div>
-            <canvas id="roll"></canvas>
         </main >
     </div >
 );
 
-
 }
+
+
+
+
+

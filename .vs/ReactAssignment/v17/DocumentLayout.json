@@ -1,0 +1,184 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\kyans\\source\\repos\\strudel_reactor\\src\\components\\toggletheme.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\toggletheme.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\kyans\\source\\repos\\strudel_reactor\\src\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\kyans\\source\\repos\\strudel_reactor\\src\\components\\volume.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\volume.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\kyans\\source\\repos\\strudel_reactor\\src\\components\\preprocess.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\preprocess.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\kyans\\source\\repos\\strudel_reactor\\src\\components\\playandstop.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\playandstop.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\kyans\\source\\repos\\strudel_reactor\\src\\components\\savebutton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\savebutton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\kyans\\source\\repos\\strudel_reactor\\src\\components\\loadbutton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\loadbutton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\kyans\\source\\repos\\strudel_reactor\\src\\components\\deletebutton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\deletebutton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ToggleTheme.jsx",
+              "DocumentMoniker": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\ToggleTheme.jsx",
+              "RelativeDocumentMoniker": "src\\Components\\ToggleTheme.jsx",
+              "ToolTip": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\ToggleTheme.jsx",
+              "RelativeToolTip": "src\\Components\\ToggleTheme.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-06T00:27:02.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DeleteButton.jsx",
+              "DocumentMoniker": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\DeleteButton.jsx",
+              "RelativeDocumentMoniker": "src\\Components\\DeleteButton.jsx",
+              "ToolTip": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\DeleteButton.jsx",
+              "RelativeToolTip": "src\\Components\\DeleteButton.jsx",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-03T08:54:40.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoadButton.jsx",
+              "DocumentMoniker": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\LoadButton.jsx",
+              "RelativeDocumentMoniker": "src\\Components\\LoadButton.jsx",
+              "ToolTip": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\LoadButton.jsx",
+              "RelativeToolTip": "src\\Components\\LoadButton.jsx",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-03T05:47:56.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SaveButton.jsx",
+              "DocumentMoniker": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\SaveButton.jsx",
+              "RelativeDocumentMoniker": "src\\Components\\SaveButton.jsx",
+              "ToolTip": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\SaveButton.jsx",
+              "RelativeToolTip": "src\\Components\\SaveButton.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-03T04:39:05.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Volume.jsx",
+              "DocumentMoniker": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\Volume.jsx",
+              "RelativeDocumentMoniker": "src\\Components\\Volume.jsx",
+              "ToolTip": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\Volume.jsx",
+              "RelativeToolTip": "src\\Components\\Volume.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-02T03:19:37.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayAndStop.jsx",
+              "DocumentMoniker": "C:\\Users\\kyans\\Source\\Repos\\strudel_reactor\\src\\Components\\PlayAndStop.jsx",
+              "RelativeDocumentMoniker": "src\\Components\\PlayAndStop.jsx",
+              "ToolTip": "C:\\Users\\kyans\\Source\\Repos\\strudel_reactor\\src\\Components\\PlayAndStop.jsx",
+              "RelativeToolTip": "src\\Components\\PlayAndStop.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-30T23:44:52.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PreProcess.jsx",
+              "DocumentMoniker": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\PreProcess.jsx",
+              "RelativeDocumentMoniker": "src\\Components\\PreProcess.jsx",
+              "ToolTip": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\Components\\PreProcess.jsx",
+              "RelativeToolTip": "src\\Components\\PreProcess.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-10-30T23:27:11.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.js",
+              "DocumentMoniker": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\App.js",
+              "RelativeDocumentMoniker": "src\\App.js",
+              "ToolTip": "C:\\Users\\kyans\\source\\repos\\strudel_reactor\\src\\App.js",
+              "RelativeToolTip": "src\\App.js",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAAAH4AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-30T09:08:18.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
