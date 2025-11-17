@@ -161,7 +161,7 @@ return (
                             <div className="card-body d-flex flex-column gap">
 
                                 <div className="d-flex align-items-center gap-3">
-                                    <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
+                                    <PlayAndStop onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
                                     <Volume />
                                 </div>
                                 <SaveButton code={songText} onSave={handleSave} />
