@@ -9,6 +9,19 @@ export default function D3Graph({ data }) {
         //check if any data was passed and ends if no data passed.
         if (!data || data.length === 0) return;
 
+        //method that converts log lines into numbers
+        const extractGain = (str) => {
+            if (!str) return 0;
+
+            //remove empty space and finds the part that start with gain
+            const parts = str.split(" ");
+            const gainPart = parts.find((p) => p.startsWith("gain:"));
+
+            //strip the gain and converts the rest to numbers
+            if (!gainPart) return 0;
+            return Number(gainPart.replace("gain:", ""));
+        };
+
         //remove old drawing
         const svg = d3.select(svgRef.current);
         svg.selectAll("*").remove(); 
@@ -24,6 +37,9 @@ export default function D3Graph({ data }) {
         };
 
         svg.attr("width", width).attr("height", height);
+
+        //method to convert data to integer
+        const numericData = data.map((log) => extractGain(log));
     }
 
     return (
