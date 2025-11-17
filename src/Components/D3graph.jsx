@@ -18,6 +18,43 @@ export default function D3graph({ data }) {
         return Number(gainPart.replace("gain:", ""));
     };
 
+    useEffect(() => {
+        //remove old drawing
+        const svg = d3.select(svgRef.current);
+        svg.selectAll("*").remove();
+
+        //constant for margin and svg size
+        const width = 350;
+        const height = 200;
+        const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+
+        svg.attr("width", width).attr("height", height);
+
+        //method to convert data to integer
+        const numericData = data.map((log) => extractGain(log));
+
+        //x-axis range
+        const x = d3.scaleLinear()
+            .domain([0, numericData.lentgh] - 1)
+            .range([margin.left, width - margin.right]);
+
+        //y-axis range
+        const y = d3.scaleLinear()
+            .domain([0, d3.max(numericData)])
+            .nice()
+            .range([height - margin.bottom, margin.top]);
+
+        //adding x-axis to graph
+        svg.append("g")
+            .attr("transform", `translate(0, ${height - margin.bottom})`)
+            .call(d3.axisBottom(x).ticks(5));
+
+        //adding y-axis to graph
+        svg.append("g")
+            .attr("transform", `translate(${margin.left},0)`)
+            .call(d3.axisLeft(y).ticks(5));
+    })
+
     return (
         <div className="text-center">
             {/*Display graph content*/}
