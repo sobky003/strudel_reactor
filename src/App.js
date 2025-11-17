@@ -114,7 +114,7 @@ useEffect(() => {
 return (
     <div>
         <main>
-            <div className="container-fluid d-flex flex-column justify-content-between overflow-auto" style={{ height: "100vh", overflow: "hidden" }}>
+            <div className="container-fluid d-flex flex-column justify-content-between overflow-auto" >
 
                 {/*header*/ }
                 <header className="text-center">
@@ -134,12 +134,6 @@ return (
                             <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
                         </div>
                     </div>
-                    <div className="col-lg-8">
-                        <div className="card shadow-sm border-0 rounded-4 mb-4" >
-                            <div className="card-header bg-primary text-white fw-semibold">Code Editor</div>
-                            <div className="card-body overflow-auto" ref={editorRef} style={{ height: "80vh", maxHeight:"100vh" } } />
-                        </div>
-                    </div>
 
                     {/* Right column: Controls */}
                     <div className="col-lg-4 d-flex flex-column h-100">
@@ -147,7 +141,7 @@ return (
                             <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
                             <div className="card-body d-flex flex-column gap">
 
-                                <div className="d-flex align-items-center gap-1">
+                                <div className="d-flex align-items-center gap-3">
                                     <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
                                     <Volume />
                                 </div>
@@ -156,8 +150,22 @@ return (
                                 <DeleteButton saves={saves} onDelete={handleDelete} />
                             </div>
                         </div>
-                        
+
                     </div>
+                    <div className="col-lg-8">
+                        <div className="card shadow-sm border-0 rounded-4 mb-4" >
+                            <div className="card-header bg-primary text-white fw-semibold">Code Editor</div>
+                            <div className="card-body overflow-auto" ref={editorRef} style={{ height: "80vh", maxHeight:"100vh" } } />
+                        </div>
+                    </div>
+                    <div className="col-lg-4">
+                        <div className="card shadow-sm border-0 rounded-4 mb-4" >
+                            <div className="card-header bg-primary text-white fw-semibold">Graph</div>
+                           
+                        </div>
+                    </div>
+
+                    
                 </div>
                 <canvas ref={canvasRef}></canvas>
             </div>
