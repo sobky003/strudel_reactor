@@ -17,6 +17,7 @@ import DeleteButton from './Components/DeleteButton';
 import ToggleTheme from './Components/ToggleTheme';
 import D3graph from './Components/D3graph';
 import DjControls from './Components/DjControls';
+import { Preprocess } from './Components/PreprocessLogic';
 
 let globalEditor = null;
 
@@ -28,6 +29,8 @@ export default function StrudelDemo() {
 
     //play code in editor
     const handlePlay = () => {
+        let outputText = Preprocess({ inputText: procText, volume: volume });
+        globalEditor.setCode(outputText);
         globalEditor.evaluate()
     }
 
@@ -37,7 +40,7 @@ export default function StrudelDemo() {
     }
 
     //constant that hold current strudel
-    const [songText, setSongText] = useState(stranger_tune)
+    const [procText, setProcText] = useState(stranger_tune)
 
     //const to hold volume
     const [volume, setVolume] = useState(1);
@@ -126,8 +129,8 @@ useEffect(() => {
             });
     }
     //updates editor content whenever songText changes
-    globalEditor.setCode(songText)
-}, [songText]); //re-run when songText changes
+    globalEditor.setCode(procText)
+}, [procText]); //re-run when songText changes
 
 
 return (
@@ -150,19 +153,19 @@ return (
                     {/* Left column: Code editor */}
                     <div className="col-lg-6 d-flex flex-column" style={{ height: "50vh" }}>
                         <div className="card shadow-sm border-0 rounded-4 mb-4"> 
-                            <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
+                            <PreProcess value={procText} onChange={(e) => setProcText(e.target.value)} />
                         </div>
                     </div>
 
                     {/* Right column: Controls */}
-                    <div className="col-lg-6 d-flex flex-column" style={{ height: "50vh" }}>
+                    <div className="col-lg-6 d-flex flex-column" style={{ height: "70vh" }}>
                         <div className="card shadow-sm border-0 rounded-4 ">
                             <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
                             <div className="card-body d-flex flex-column gap">
                                 <PlayAndStop onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
-                                <DjControls />
-                                <SaveButton code={songText} onSave={handleSave} />
-                                <LoadButton saves={saves} onLoad={setSongText} />
+                                <DjControls volumeChange={volume} onVolumeChange={(e)=> setVolume(e.target.value) } />
+                                <SaveButton code={procText} onSave={handleSave} />
+                                <LoadButton saves={saves} onLoad={setProcText} />
                                 <DeleteButton saves={saves} onDelete={handleDelete} />
                             </div>
                         </div>
