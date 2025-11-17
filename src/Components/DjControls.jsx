@@ -1,10 +1,13 @@
 function DjControls() {
     return (
         <>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="cpm_label">setCPM</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+            <div className="input-group mb-3">
+                <span className="input-group-text" id="cpm_label">setCPM</span>
+                <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
             </div>
+
+            <label htmlFor="volume_range" className="form-label">Volume</label>
+            <input type="range" className="form-range" id="volume_range" min="0" max="1" step="0.01"/>
         </>
     );
 }
