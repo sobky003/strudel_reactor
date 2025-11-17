@@ -1,4 +1,4 @@
-﻿import './App.css';
+import './App.css';
 import { useEffect, useRef,useState } from "react";
 import { StrudelMirror } from '@strudel/codemirror';
 import { evalScope } from '@strudel/core';
@@ -122,7 +122,7 @@ return (
         <main>
             <div className="container-fluid d-flex flex-column justify-content-between overflow-auto" >
 
-                {/*header*/ }
+                {/*Header*/ }
                 <header className="text-center">
                     <h2 className="fw-bold">Strudel Composer</h2>
                     <p className="text-muted">
@@ -135,14 +135,14 @@ return (
                 <div className="row flex-grow-1">
 
                     {/* Left column: Code editor */}
-                    <div className="col-lg-8 d-flex flex-column h-100">
+                    <div className="col-lg-6 d-flex flex-column" style={{ height: "50vh" }}>
                         <div className="card shadow-sm border-0 rounded-4 mb-4"> 
                             <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
                         </div>
                     </div>
 
                     {/* Right column: Controls */}
-                    <div className="col-lg-4 d-flex flex-column h-100">
+                    <div className="col-lg-6 d-flex flex-column" style={{ height: "50vh" }}>
                         <div className="card shadow-sm border-0 rounded-4 ">
                             <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
                             <div className="card-body d-flex flex-column gap">
@@ -158,13 +158,13 @@ return (
                         </div>
 
                     </div>
-                    <div className="col-lg-8">
+                    <div className="col-lg-6 d-flex flex-column" style={{ height: "50vh" }}>
                         <div className="card shadow-sm border-0 rounded-4 mb-4" >
                             <div className="card-header bg-primary text-white fw-semibold">Code Editor</div>
                             <div className="card-body overflow-auto" ref={editorRef} style={{ height: "80vh", maxHeight:"100vh" } } />
                         </div>
                     </div>
-                    <div className="col-lg-4">
+                    <div className="col-lg-6 d-flex flex-column" style={{ height: "50vh" }}>
                         <div className="card shadow-sm border-0 rounded-4 mb-4" >
                             <div className="card-header bg-primary text-white fw-semibold">Graph</div>
                             <div className="card-body text-center">
