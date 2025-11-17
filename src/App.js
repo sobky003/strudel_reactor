@@ -39,6 +39,19 @@ export default function StrudelDemo() {
     //constant that hold current strudel
     const [songText, setSongText] = useState(stranger_tune)
 
+    //const to hold volume
+    const [volume, setVolume] = useState(1);
+
+    //const for play/stop state
+    const [state, setState] = useState("stop");
+
+    //changes volume as volume changes
+    useEffect(() => {
+        if (state === "play") {
+            handlePlay();
+        }
+    }, [volume])
+
     //constant to hold the saved files from localStorage
     const [saves, setSaves] = useState(JSON.parse(localStorage.getItem('strudelSaves')) || []
     );
