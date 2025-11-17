@@ -16,6 +16,7 @@ import SaveButton from './Components/SaveButton';
 import LoadButton from './Components/LoadButton';
 import DeleteButton from './Components/DeleteButton';
 import ToggleTheme from './Components/ToggleTheme';
+import D3Graph from './Components/D3Graph';
 
 let globalEditor = null;
 
@@ -161,7 +162,7 @@ return (
                     <div className="col-lg-4">
                         <div className="card shadow-sm border-0 rounded-4 mb-4" >
                             <div className="card-header bg-primary text-white fw-semibold">Graph</div>
-                           
+                            <D3Graph />
                         </div>
                     </div>
 
