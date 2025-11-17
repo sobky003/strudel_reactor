@@ -49,10 +49,29 @@ export default function D3graph({ data }) {
             .attr("transform", `translate(0, ${height - margin.bottom})`)
             .call(d3.axisBottom(x).ticks(5));
 
+        //x-axis label
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", height - 5)
+            .attr("text-anchor", "middle")
+            .attr("fill", "#444")
+            .attr("font-size", "12px")
+            .text("Event Index");
+
         //adding y-axis to graph
         svg.append("g")
             .attr("transform", `translate(${margin.left},0)`)
             .call(d3.axisLeft(y).ticks(5));
+
+        //y-axis label
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("x", -height / 2)
+            .attr("y", 15)
+            .attr("text-anchor", "middle")
+            .attr("fill", "#444")
+            .attr("font-size", "12px")
+            .text("Gain Value");
 
         //drawing the line
         svg.append("path")
