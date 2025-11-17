@@ -40,6 +40,15 @@ export default function D3Graph({ data }) {
 
         //method to convert data to integer
         const numericData = data.map((log) => extractGain(log));
+
+        const x = d3.scaleLinear()
+            .domain([0, numericData.length - 1])
+            .range([margin.left, width - margin.right]);
+
+        const y = d3.scaleLinear()
+            .domain([0, d3.max(numericData)])
+            .nice()
+            .range([height - margin.bottom, margin.top]);
     }
 
     return (
