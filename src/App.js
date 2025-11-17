@@ -16,7 +16,7 @@ import SaveButton from './Components/SaveButton';
 import LoadButton from './Components/LoadButton';
 import DeleteButton from './Components/DeleteButton';
 import ToggleTheme from './Components/ToggleTheme';
-
+import D3graph from './Components/D3graph';
 
 let globalEditor = null;
 
