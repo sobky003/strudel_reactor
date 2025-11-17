@@ -20,9 +20,14 @@ export function Preprocess({ inputText, volume }) {
     }
 
     let matches2 = matches.map(
-        match => match.replaceAll(/(?<!post)gain\(([\d.]+)\)g, (match,captureGroup) => 
+        match => match.replaceAll(/(?<!post)gain\(([\d.]+)\)/g, (match,captureGroup) => 
             `gain(${captureGroup}*${volume})`
         )
     );
 
+    let matches3 = matches.reduce(
+        (text, original, i) => text.replaceAll(original, matches2[i]),
+        outputText);
+
+    return matches3
 }
