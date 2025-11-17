@@ -61,6 +61,18 @@ export default function D3Graph({ data }) {
         svg.append("g")
             .attr("transform", `translate(${margin.left},0)`)
             .call(d3.axisLeft(y).ticks(5));
+
+        //drawing the line
+        svg.append("path")
+            .datum(numericData)
+            .attr("fill", "none")
+            .attr("stroke", "steelblue")
+            .attr("stroke-width", 2)
+            .attr("d",
+                d3.line()
+                    .x((d, i) => x(i))
+                    .y((d) => y(d))
+            );
     }
 
     return (
