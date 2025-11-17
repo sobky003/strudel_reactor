@@ -11,7 +11,6 @@ import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 import PreProcess from './Components/PreProcess';
 import PlayAndStop from './Components/PlayAndStop';
-import Volume from './Components/Volume';
 import SaveButton from './Components/SaveButton';
 import LoadButton from './Components/LoadButton';
 import DeleteButton from './Components/DeleteButton';
@@ -162,7 +161,7 @@ return (
 
                                 <div className="d-flex align-items-center gap-3">
                                     <PlayAndStop onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
-                                    <Volume volume={volume} onVolumeChange={setVolume} songText={songText} setSongText={setSongText} />
+                                    
                                 </div>
                                 <SaveButton code={songText} onSave={handleSave} />
                                 <LoadButton saves={saves} onLoad={setSongText} />
