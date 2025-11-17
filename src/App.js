@@ -20,10 +20,6 @@ import D3Graph from './Components/D3Graph';
 
 let globalEditor = null;
 
-const handleD3Data = (event) => {
-    console.log(event.detail);
-};
-
 export default function StrudelDemo() {
     //constants for referencing DOM elements
     const hasRun = useRef(false);
@@ -46,6 +42,15 @@ export default function StrudelDemo() {
     //constant to hold the saved files from localStorage
     const [saves, setSaves] = useState(JSON.parse(localStorage.getItem('strudelSaves')) || []
     );
+
+    //constant to hold array
+    const [hapData, setHapData] = useState([]);
+
+    //setting the data
+    const handleD3Data = (event) => {
+        console.log(event.detail);
+        setHapData(event.detail);
+    };
 
     //method to save current file
     const handleSave = (name, code) => {
@@ -162,7 +167,9 @@ return (
                     <div className="col-lg-4">
                         <div className="card shadow-sm border-0 rounded-4 mb-4" >
                             <div className="card-header bg-primary text-white fw-semibold">Graph</div>
-                            <D3Graph />
+                            <div className="card-body text-center">
+                                <D3Graph hapData={hapData} />
+                            </div>
                         </div>
                     </div>
 
