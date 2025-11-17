@@ -35,7 +35,7 @@ export default function D3graph({ data }) {
 
         //x-axis range
         const x = d3.scaleLinear()
-            .domain([0, numericData.lentgh] - 1)
+            .domain([0, numericData.length - 1])
             .range([margin.left, width - margin.right]);
 
         //y-axis range
@@ -53,7 +53,19 @@ export default function D3graph({ data }) {
         svg.append("g")
             .attr("transform", `translate(${margin.left},0)`)
             .call(d3.axisLeft(y).ticks(5));
-    })
+
+        //drawing the line
+        svg.append("path")
+            .datum(numericData)
+            .attr("fill", "none")
+            .attr("stroke", "steelblue")
+            .attr("stroke-width", 2)
+            .attr("d",
+                d3.line()
+                    .x((d, i) => x(i))
+                    .y((d) => y(d))
+            );
+    },[data])
 
     return (
         <div className="text-center">
