@@ -46,7 +46,7 @@ export default function StrudelDemo() {
     //constant to hold array
     const [hapData, setHapData] = useState([]);
 
-    //setting the data
+    //listening event that retrieves data from log and pass it back
     const handleD3Data = (event) => {
         console.log(event.detail);
         setHapData(event.detail);
@@ -168,7 +168,7 @@ return (
                         <div className="card shadow-sm border-0 rounded-4 mb-4" >
                             <div className="card-header bg-primary text-white fw-semibold">Graph</div>
                             <div className="card-body text-center">
-                                <D3Graph hapData={hapData} />
+                                <D3Graph data={hapData} />
                             </div>
                         </div>
                     </div>

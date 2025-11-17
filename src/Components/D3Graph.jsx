@@ -1,12 +1,15 @@
 ﻿
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
-function D3Graph() {
-   
+export default function D3Graph({ data }) {
+    //graph component
+    const svgRef = useRef(null);
+
     return (
-        <>
-        </>
+        <div className="text-center">
+            {/*display graph component*/ }
+            <svg ref={svgRef}></svg>
+        </div>
     );
 }
 
-export default D3Graph;
