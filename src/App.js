@@ -162,7 +162,7 @@ return (
 
                                 <div className="d-flex align-items-center gap-3">
                                     <PlayAndStop onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
-                                    <Volume />
+                                    <Volume volume={volume} onVolumeChange={setVolume} songtext={songText} setSongText={setSongText} />
                                 </div>
                                 <SaveButton code={songText} onSave={handleSave} />
                                 <LoadButton saves={saves} onLoad={setSongText} />
