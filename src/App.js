@@ -16,6 +16,7 @@ import LoadButton from './Components/LoadButton';
 import DeleteButton from './Components/DeleteButton';
 import ToggleTheme from './Components/ToggleTheme';
 import D3graph from './Components/D3graph';
+import DjControls from './Components/DjControls';
 
 let globalEditor = null;
 
@@ -158,11 +159,8 @@ return (
                         <div className="card shadow-sm border-0 rounded-4 ">
                             <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
                             <div className="card-body d-flex flex-column gap">
-
-                                <div className="d-flex align-items-center gap-3">
-                                    <PlayAndStop onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
-                                    
-                                </div>
+                                <PlayAndStop onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
+                                <DjControls />
                                 <SaveButton code={songText} onSave={handleSave} />
                                 <LoadButton saves={saves} onLoad={setSongText} />
                                 <DeleteButton saves={saves} onDelete={handleDelete} />
