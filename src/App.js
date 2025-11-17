@@ -126,33 +126,37 @@ return (
                 <div className="position-absolute top-0 end-0 p-3">
                     <ToggleTheme theme={theme} onChange={setTheme} />
                 </div>
-                <div className="row h-100">
+                <div className="row flex-grow-1">
 
                     {/* Left column: Code editor */}
+                    <div className="col-lg-8 d-flex flex-column h-100">
+                        <div className="card shadow-sm border-0 rounded-4 mb-4"> 
+                            <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
+                        </div>
+                    </div>
                     <div className="col-lg-8">
-                        <div className="card shadow-sm border-0 rounded-4 mb-4">
+                        <div className="card shadow-sm border-0 rounded-4 mb-4" >
                             <div className="card-header bg-primary text-white fw-semibold">Code Editor</div>
                             <div className="card-body overflow-auto" ref={editorRef} style={{ height: "80vh", maxHeight:"100vh" } } />
                         </div>
                     </div>
 
                     {/* Right column: Controls */}
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 d-flex flex-column h-100">
                         <div className="card shadow-sm border-0 rounded-4 ">
                             <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
-                        </div>
+                            <div className="card-body d-flex flex-column gap">
 
-                        {/*Control components */}
-                        <div className="card-body d-flex flex-column gap">
-                            <PreProcess value={songText} onChange={(e) => setSongText(e.target.value)} />
-                            <div className="d-flex align-items-center gap-1">
-                                <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
-                                <Volume />
+                                <div className="d-flex align-items-center gap-1">
+                                    <PlayAndStop onPlay={handlePlay} onStop={handleStop} />
+                                    <Volume />
+                                </div>
+                                <SaveButton code={songText} onSave={handleSave} />
+                                <LoadButton saves={saves} onLoad={setSongText} />
+                                <DeleteButton saves={saves} onDelete={handleDelete} />
                             </div>
-                            <SaveButton code={songText} onSave={handleSave} />
-                            <LoadButton saves={saves} onLoad={setSongText} />
-                            <DeleteButton saves={saves} onDelete={handleDelete} />
                         </div>
+                        
                     </div>
                 </div>
                 <canvas ref={canvasRef}></canvas>
