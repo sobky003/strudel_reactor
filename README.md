@@ -84,7 +84,22 @@ This can help you create different variation of sound depending on what instrume
 This volume slider is used to change the volume output of the current music.
 
 ### Save text Area and save Button
-This text area is where you input the name of the file you are currently using for when you save it. If no name is inputted, the file will be saved under the name "untitle".
+This text area is where you input the name of the file you are currently using for when you save it. If no name is inputted, the file will be saved under the name "untitled".
 If ever you save a filename which already exists, it will overwrite the previous file with the same name with the new content. It doesn't allow 2 files with same name to be stored.
+A notification will pop up once a file was successfully saved and will disappear after 2 second.
 
+### Load Button and drop down box.
+This drop down box contains a list of all the files you have saved. 
+By simply selecting one of the files and clicking on the button you will load the file with all the settings, that is the unchecked button, same as when you last used them.
+A notification will pop up once a file was loaded and it will disappear after 2 second.
 
+### Delete Button and drop down box.
+You can select the file you want to delete using the drop down box. Upon pressing the button delete, you will be asked to confirm the deletion process.
+If you press cancel, this will stop the deletion process. If you press yes, the selected file will be deleted.
+A notification will pop up once a file was deleted and it will disappear after 2 second.
+
+### Graph
+This graph displays the gain of the music being played. As the speed is increased or certain instrument are muted, the gain will be affected and displayed on the graph.
+
+### toggle Button
+This button can be used to switch between light and dark mode.
