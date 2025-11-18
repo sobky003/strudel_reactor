@@ -1,4 +1,4 @@
-export function Preprocess({ inputText, volume, cpm }) {
+export function Preprocess({ inputText, volume, cpm, muted }) {
     let outputText = inputText;
 
     let regex = /[a-zA-Z0-9_]+:\s*\n[\s\S]+?\r?\n(?=[a-zA-Z0-9_]*[:\/])/gm;
@@ -35,6 +35,14 @@ export function Preprocess({ inputText, volume, cpm }) {
             /setcps\([^)]*\)/,
             `setcps(${cpm})`
         );
+    }
+
+    //sets the instrument to silent
+    if (muted) {
+        muted.forEach(inst => {
+            const reg = new RegExp(`${inst}:([\\s\\S]*?)(?=\\w+:|$)`, "gm");
+            outputText = outputText.replace(reg, `${inst}:\n    silence\n`);
+        });
     }
 
     return outputText;
