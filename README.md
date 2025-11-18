@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Play Button
+This button is used to play the music from the code editor. There is no stop button because when you press play, the label will change to stop. Meaning that play button does both the job of stop and playing the music.
+
+### Cpm textArea
+This textArea is used to change the speed at which the current music is being played. If a letter is entered it will automatically set it to the default value with the label "Nan".

@@ -32,9 +32,8 @@ export function Preprocess({ inputText, volume, cpm, muted }) {
     //sets the new cpm
     if (cpm !== null && !isNaN(cpm)) {
         outputText = outputText.replace(
-            /setcps\([^)]*\)/,
-            `setcps(${cpm})`
-        );
+            /setcps\(\s*(\d+)(\/[^)]*)\)/,
+            (match, firstNum, rest) => `setcps(${cpm}${rest})`)
     }
 
 

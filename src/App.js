@@ -51,7 +51,7 @@ export default function StrudelDemo() {
     const [state, setState] = useState("stop");
 
     //const for cpm speed
-    const [cpm, setCpm] = useState(0.58);
+    const [cpm, setCpm] = useState(140);
 
     //const for mute
     const [muted, setMuted] = useState([]);
