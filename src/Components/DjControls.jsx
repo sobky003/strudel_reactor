@@ -10,16 +10,23 @@ function DjControls({ volumeChange, onVolumeChange,cpm,onCpmChange }) {
             <input type="range" className="form-range" id="volume_range" min="0" max="1" step="0.01" value={volumeChange} onChange={onVolumeChange } />
 
             <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="s1"/>
-                    <label class="form-check-label" htmlFor="s1">
-                       s1
+                <input className="form-check-input" type="checkbox" value="" />
+                    <label class="form-check-label">
+                       Mute BassLine
                     </label>
             </div>
 
             <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="s2" />
-                <label class="form-check-label" htmlFor="s2">
-                    s2
+                <input className="form-check-input" type="checkbox" value="" />
+                <label class="form-check-label" >
+                    Mute arpeggiator
+                </label>
+            </div>
+
+            <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="" />
+                <label class="form-check-label" >
+                    Mute Drums
                 </label>
             </div>
         </>
