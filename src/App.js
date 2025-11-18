@@ -144,7 +144,7 @@ useEffect(() => {
 return (
     <div>
         <main>
-            <div className="container-fluid d-flex flex-column justify-content-between overflow-auto" >
+            <div className="container-fluid" >
 
                 {/*Header*/ }
                 <header className="text-center">
@@ -156,37 +156,32 @@ return (
                 <div className="position-absolute top-0 end-0 p-3">
                     <ToggleTheme theme={theme} onChange={setTheme} />
                 </div>
-                <div className="row flex-grow-1">
-
+                <div className="row">
                     {/* Left column: Code editor */}
-                    <div className="col-lg-6 d-flex flex-column" style={{ height: "50vh" }}>
-                        <div className="card shadow-sm border-0 rounded-4 mb-4"> 
+                    <div className="col-md-8" style={{ maxheight: "50vh", overflow:'auto' }}>
+                        <div className="card shadow-sm border-0 rounded-4 mb-4">
                             <PreProcess value={procText} onChange={(e) => setProcText(e.target.value)} />
-                           
                         </div>
                     </div>
-
-                    {/* Right column: Controls */}
-                    <div className="col-lg-6 d-flex flex-column" style={{ height: "70vh" }}>
-                        <div className="card shadow-sm border-0 rounded-4 ">
-                            <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
-                            <div className="card-body d-flex flex-column gap">
-                                <PlayAndStop onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
-                                <DjControls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} cpm={cpm} onCpmChange={setCpm} muted={muted} onMuteChange={setMuted } />
-                                <SaveButton code={procText} onSave={handleSave} />
-                                <LoadButton saves={saves} onLoad={setProcText} onLoadMuted={setMuted} />
-                                <DeleteButton saves={saves} onDelete={handleDelete} />
-                            </div>
+                    <div className="col-md-4">
+                        <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
+                        <div className="card-body ">
+                            <PlayAndStop onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
+                            <DjControls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} cpm={cpm} onCpmChange={setCpm} muted={muted} onMuteChange={setMuted} />
+                            <SaveButton code={procText} onSave={handleSave} />
+                            <LoadButton saves={saves} onLoad={setProcText} onLoadMuted={setMuted} />
+                            <DeleteButton saves={saves} onDelete={handleDelete} />
                         </div>
-
                     </div>
-                    <div className="col-lg-6 d-flex flex-column" style={{ height: "50vh" }}>
+                </div>
+                <div className="row">
+                    <div className="col-md-8" style={{ maxheight: "50vh", overflow: 'auto' }}>
                         <div className="card shadow-sm border-0 rounded-4 mb-4" >
                             <div className="card-header bg-primary text-white fw-semibold">Code Editor</div>
-                            <div className="card-body overflow-auto" ref={editorRef} style={{ height: "80vh", maxHeight:"100vh" } } />
+                            <div className="card-body overflow-auto" ref={editorRef} style={{ height: "50vh", maxHeight: "50vh" }} />
                         </div>
                     </div>
-                    <div className="col-lg-6 d-flex flex-column" style={{ height: "50vh" }}>
+                    <div className="col-md-4">
                         <div className="card shadow-sm border-0 rounded-4 mb-4" >
                             <div className="card-header bg-primary text-white fw-semibold">Graph</div>
                             <div className="card-body text-center">
@@ -194,9 +189,8 @@ return (
                             </div>
                         </div>
                     </div>
-
-                    
                 </div>
+                
                 <canvas ref={canvasRef}></canvas>
             </div>
         </main >
@@ -204,8 +198,4 @@ return (
 );
 
 }
-
-
-
-
 
