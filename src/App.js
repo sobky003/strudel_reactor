@@ -174,7 +174,7 @@ return (
                                 <PlayAndStop onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
                                 <DjControls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} cpm={cpm} onCpmChange={setCpm} muted={muted} onMuteChange={setMuted } />
                                 <SaveButton code={procText} onSave={handleSave} />
-                                <LoadButton saves={saves} onLoad={setProcText} />
+                                <LoadButton saves={saves} onLoad={setProcText} onLoadMuted={setMuted} />
                                 <DeleteButton saves={saves} onDelete={handleDelete} />
                             </div>
                         </div>

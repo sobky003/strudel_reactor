@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 
 //load the file from the localStorage
-function LoadButton({ onLoad,saves }) {
+function LoadButton({ onLoad,saves,onLoadMuted }) {
     const [selectedIndex, setSelectedIndex] = useState(-1);//index of file selected in dropdown
     const [message, setMessage] = useState('');//stores feedback message that will be generated
     const [isError, setIsError] = useState(false);//to store flagged message feedback
@@ -13,6 +13,19 @@ function LoadButton({ onLoad,saves }) {
 
         //passes code to parent to display onLoad
         onLoad(chosen.code);
+
+        //look in the code for muted instrument to set the state of the instruments
+        const mutedInstruments = [];
+        const muteRegex = /^_([a-zA-Z0-9_]+):/gm;
+        let m;
+
+        //updates the array we have in djcontrols and say this is muted
+        while ((m = muteRegex.exec(chosen.code)) !== null) {
+            mutedInstruments.push(m[1]);
+        }
+
+        //sends back state to parent
+        onLoadMuted(mutedInstruments);
 
         //reset drop down
         setSelectedIndex(-1);

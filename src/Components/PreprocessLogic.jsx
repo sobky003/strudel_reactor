@@ -37,6 +37,8 @@ export function Preprocess({ inputText, volume, cpm, muted }) {
         );
     }
 
+
+
     //sets the instrument to silent
     if (muted.length > 0) {
         muted.forEach(inst => {
