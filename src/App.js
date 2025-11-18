@@ -157,7 +157,6 @@ return (
                     <ToggleTheme theme={theme} onChange={setTheme} />
                 </div>
                 <div className="row">
-                    {/* Left column: Code editor */}
                     <div className="col-md-8" style={{ maxheight: "50vh", overflow:'auto' }}>
                         <div className="card shadow-sm border-0 rounded-4 mb-4">
                             <PreProcess value={procText} onChange={(e) => setProcText(e.target.value)} />

@@ -38,7 +38,7 @@ export function Preprocess({ inputText, volume, cpm, muted }) {
 
 
 
-    //sets the instrument to silent
+    //sets the instrument to mute
     if (muted.length > 0) {
         muted.forEach(inst => {
             //Add '_' before the instrument

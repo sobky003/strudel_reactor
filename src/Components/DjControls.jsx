@@ -2,9 +2,13 @@ function DjControls({ volumeChange, onVolumeChange,cpm,onCpmChange,muted,onMuteC
 
     //method to mute only instrument selected
     const handleMuteChange = (e) => {
+        //instrument id
         const id = e.target.id;
+        //constant to get if instrument is checked
         const checked = e.target.checked;
 
+
+        //if checked add instrument as muted.
         if (checked) onMuteChange([...muted, id]);
         else onMuteChange(muted.filter(x => x !== id));
     };
