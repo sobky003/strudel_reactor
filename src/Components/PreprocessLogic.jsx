@@ -29,5 +29,13 @@ export function Preprocess({ inputText, volume, cpm }) {
         (text, original, i) => text.replaceAll(original, matches2[i]),
         outputText);
 
+    //sets the new cpm
+    if (cpm !== null && !isNaN(cpm)) {
+        outputText = outputText.replace(
+            /setcps\([^)]*\)/,
+            `setcps(${cpm})`
+        );
+    }
+
     return outputText;
 }
