@@ -29,7 +29,7 @@ export default function StrudelDemo() {
 
     //play code in editor
     const handlePlay = () => {
-        let outputText = Preprocess({ inputText: procText, volume: volume });
+        let outputText = Preprocess({ inputText: procText, volume: volume, cpm: cpm });
         globalEditor.setCode(outputText);
         globalEditor.evaluate()
     }
@@ -56,7 +56,7 @@ export default function StrudelDemo() {
         if (state === "play") {
             handlePlay();
         }
-    }, [volume])
+    }, [volume,cpm])
 
     //constant to hold the saved files from localStorage
     const [saves, setSaves] = useState(JSON.parse(localStorage.getItem('strudelSaves')) || []

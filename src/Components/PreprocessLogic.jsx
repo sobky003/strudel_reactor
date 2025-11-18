@@ -1,4 +1,4 @@
-export function Preprocess({ inputText, volume }) {
+export function Preprocess({ inputText, volume, cpm }) {
     let outputText = inputText;
 
     let regex = /[a-zA-Z0-9_]+:\s*\n[\s\S]+?\r?\n(?=[a-zA-Z0-9_]*[:\/])/gm;
