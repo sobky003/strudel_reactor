@@ -29,7 +29,7 @@ export default function StrudelDemo() {
 
     //play code in editor
     const handlePlay = () => {
-        let outputText = Preprocess({ inputText: procText, volume: volume, cpm: cpm });
+        let outputText = Preprocess({ inputText: procText, volume: volume, cpm: cpm, muted:muted });
         globalEditor.setCode(outputText);
         globalEditor.evaluate()
     }
@@ -49,14 +49,17 @@ export default function StrudelDemo() {
     const [state, setState] = useState("stop");
 
     //const for cpm speed
-    const [cpm, setCpm] = useState(140 / 60 / 4);
+    const [cpm, setCpm] = useState(0.58);
+
+    //const for mute
+    const [muted, setMuted] = useState([]);
 
     //changes volume as volume changes
     useEffect(() => {
         if (state === "play") {
             handlePlay();
         }
-    }, [volume,cpm])
+    }, [volume,cpm,muted])
 
     //constant to hold the saved files from localStorage
     const [saves, setSaves] = useState(JSON.parse(localStorage.getItem('strudelSaves')) || []
@@ -166,7 +169,7 @@ return (
                             <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
                             <div className="card-body d-flex flex-column gap">
                                 <PlayAndStop onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
-                                <DjControls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} cpm={cpm} onCpmChange={setCpm} />
+                                <DjControls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} cpm={cpm} onCpmChange={setCpm} muted={muted} onMuteChange={setMuted } />
                                 <SaveButton code={procText} onSave={handleSave} />
                                 <LoadButton saves={saves} onLoad={setProcText} />
                                 <DeleteButton saves={saves} onDelete={handleDelete} />
