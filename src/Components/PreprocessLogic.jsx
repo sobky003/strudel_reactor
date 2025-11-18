@@ -38,10 +38,18 @@ export function Preprocess({ inputText, volume, cpm, muted }) {
     }
 
     //sets the instrument to silent
-    if (muted) {
+    if (muted.length > 0) {
         muted.forEach(inst => {
-            const reg = new RegExp(`${inst}:([\\s\\S]*?)(?=\\w+:|$)`, "gm");
-            outputText = outputText.replace(reg, `${inst}:\n    silence\n`);
+            //finds block header
+            const reg = new RegExp(`${inst}:([\\s\\S]*?)(?=\\n\\s*[a-zA-Z0-9_]+:)`, "gm");
+
+            //find end block in file
+            const regEnd = new RegExp(`${inst}:([\\s\\S]*)$`, "gm");
+
+            //sets that block to silence
+            outputText = outputText.replace(reg, `${inst}:\n    silence\n`)
+                .replace(regEnd, `${inst}:\n    silence\n`);
+                
         });
     }
 
