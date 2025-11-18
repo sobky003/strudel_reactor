@@ -1,9 +1,9 @@
-function DjControls({ volumeChange, onVolumeChange }) {
+function DjControls({ volumeChange, onVolumeChange,cpm,onCpmChange }) {
     return (
         <>
             <div className="input-group mb-3">
                 <span className="input-group-text" id="cpm_label">setCPM</span>
-                <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+                <input type="text" className="form-control" id="cpm_text_input" placeholder="120" aria-label="cpm" aria-describedby="cpm_label" value={cpm} onChange={(e) => onCpmChange(Number(e.target.value))} />
             </div>
 
             <label htmlFor="volume_range" className="form-label">Volume</label>

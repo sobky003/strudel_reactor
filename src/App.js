@@ -48,6 +48,9 @@ export default function StrudelDemo() {
     //const for play/stop state
     const [state, setState] = useState("stop");
 
+    //const for cpm speed
+    const [cpm, setCpm] = useState(140 / 60 / 4);
+
     //changes volume as volume changes
     useEffect(() => {
         if (state === "play") {
@@ -163,7 +166,7 @@ return (
                             <div className="card-header bg-info text-dark fw-semibold"> Controls</div>
                             <div className="card-body d-flex flex-column gap">
                                 <PlayAndStop onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
-                                <DjControls volumeChange={volume} onVolumeChange={(e)=> setVolume(e.target.value) } />
+                                <DjControls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} cpm={cpm} onCpmChange={setCpm} />
                                 <SaveButton code={procText} onSave={handleSave} />
                                 <LoadButton saves={saves} onLoad={setProcText} />
                                 <DeleteButton saves={saves} onDelete={handleDelete} />
