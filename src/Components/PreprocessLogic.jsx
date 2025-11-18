@@ -25,9 +25,9 @@ export function Preprocess({ inputText, volume }) {
         )
     );
 
-    let matches3 = matches.reduce(
+    outputText = matches.reduce(
         (text, original, i) => text.replaceAll(original, matches2[i]),
         outputText);
 
-    return matches3
+    return outputText;
 }

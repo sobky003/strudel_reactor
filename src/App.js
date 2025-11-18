@@ -128,9 +128,9 @@ useEffect(() => {
                 },
             });
     }
-    //updates editor content whenever songText changes
+    //updates editor content whenever procText changes
     globalEditor.setCode(procText)
-}, [procText]); //re-run when songText changes
+}, [procText]); //re-run when procText changes
 
 
 return (
