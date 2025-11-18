@@ -1,4 +1,14 @@
-function DjControls({ volumeChange, onVolumeChange,cpm,onCpmChange }) {
+function DjControls({ volumeChange, onVolumeChange,cpm,onCpmChange,muted,onMuteChange }) {
+
+    //method to mute only instrument selected
+    const handleMuteChange = (e) => {
+        const id = e.target.id;
+        const checked = e.target.checked;
+
+        if (checked) onMuteChange([...muted, id]);
+        else onMuteChange(muted.filter(x => x !== id));
+    };
+
     return (
         <>
             <div className="input-group mb-3">
@@ -10,21 +20,21 @@ function DjControls({ volumeChange, onVolumeChange,cpm,onCpmChange }) {
             <input type="range" className="form-range" id="volume_range" min="0" max="1" step="0.01" value={volumeChange} onChange={onVolumeChange } />
 
             <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" />
+                <input className="form-check-input" type="checkbox" id="bassline" checked={muted.includes("bassline")} onChange={handleMuteChange} />
                     <label class="form-check-label">
                        Mute BassLine
                     </label>
             </div>
 
             <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" />
+                <input className="form-check-input" type="checkbox" id="main_arp" checked={muted.includes("main_arp")} onChange={handleMuteChange} />
                 <label class="form-check-label" >
                     Mute arpeggiator
                 </label>
             </div>
 
             <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" />
+                <input className="form-check-input" type="checkbox" id="drums" checked={muted.includes("drums")} onChange={handleMuteChange} />
                 <label class="form-check-label" >
                     Mute Drums
                 </label>
