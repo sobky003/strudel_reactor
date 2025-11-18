@@ -19,6 +19,7 @@ import D3graph from './Components/D3graph';
 import DjControls from './Components/DjControls';
 import { Preprocess } from './Components/PreprocessLogic';
 
+
 let globalEditor = null;
 
 export default function StrudelDemo() {
@@ -39,6 +40,7 @@ export default function StrudelDemo() {
         globalEditor.stop()
     }
 
+   
     //constant that hold current strudel
     const [procText, setProcText] = useState(stranger_tune)
 
@@ -160,6 +162,7 @@ return (
                     <div className="col-lg-6 d-flex flex-column" style={{ height: "50vh" }}>
                         <div className="card shadow-sm border-0 rounded-4 mb-4"> 
                             <PreProcess value={procText} onChange={(e) => setProcText(e.target.value)} />
+                           
                         </div>
                     </div>
 
