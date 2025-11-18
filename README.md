@@ -91,11 +91,13 @@ A notification will pop up once a file was successfully saved and will disappear
 ### Load Button and drop down box.
 This drop down box contains a list of all the files you have saved. 
 By simply selecting one of the files and clicking on the button you will load the file with all the settings, that is the unchecked button, same as when you last used them.
+As long as a file has not been selected, the load button will not be available.
 A notification will pop up once a file was loaded and it will disappear after 2 second.
 
 ### Delete Button and drop down box.
 You can select the file you want to delete using the drop down box. Upon pressing the button delete, you will be asked to confirm the deletion process.
 If you press cancel, this will stop the deletion process. If you press yes, the selected file will be deleted.
+As long as a file has not been selected, the delete button will be available.
 A notification will pop up once a file was deleted and it will disappear after 2 second.
 
 ### Graph
