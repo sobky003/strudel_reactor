@@ -22,7 +22,7 @@ function DjControls({ volumeChange, onVolumeChange,cpm,onCpmChange,muted,onMuteC
             <div className="form-check">
                 <input className="form-check-input" type="checkbox" id="main_arp" checked={muted.includes("main_arp")} onChange={handleMuteChange} />
                 <label class="form-check-label" >
-                    Mute arpeggiator
+                    Mute main_arp
                 </label>
             </div>
 
