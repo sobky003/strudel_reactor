@@ -75,3 +75,16 @@ This button is used to play the music from the code editor. There is no stop but
 
 ### Cpm textArea
 This textArea is used to change the speed at which the current music is being played. If a letter is entered it will automatically set it to the default value with the label "Nan".
+
+### Mute radio checkBox
+These checkBox allows the instrument in my tunes to be muted and unmuted. Currently there are 3 instrument (main_apr,drums and drums2)By simply checking and unchecking the box, you can mute and unmute them.
+This can help you create different variation of sound depending on what instrument you mute.
+
+### Volume slider
+This volume slider is used to change the volume output of the current music.
+
+### Save text Area and save Button
+This text area is where you input the name of the file you are currently using for when you save it. If no name is inputted, the file will be saved under the name "untitle".
+If ever you save a filename which already exists, it will overwrite the previous file with the same name with the new content. It doesn't allow 2 files with same name to be stored.
+
+
