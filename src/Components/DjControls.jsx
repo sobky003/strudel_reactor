@@ -20,13 +20,6 @@ function DjControls({ volumeChange, onVolumeChange,cpm,onCpmChange,muted,onMuteC
             <input type="range" className="form-range" id="volume_range" min="0" max="1" step="0.01" value={volumeChange} onChange={onVolumeChange } />
 
             <div className="form-check">
-                <input className="form-check-input" type="checkbox" id="bassline" checked={muted.includes("bassline")} onChange={handleMuteChange} />
-                    <label class="form-check-label">
-                       Mute BassLine
-                    </label>
-            </div>
-
-            <div className="form-check">
                 <input className="form-check-input" type="checkbox" id="main_arp" checked={muted.includes("main_arp")} onChange={handleMuteChange} />
                 <label class="form-check-label" >
                     Mute arpeggiator
@@ -37,6 +30,13 @@ function DjControls({ volumeChange, onVolumeChange,cpm,onCpmChange,muted,onMuteC
                 <input className="form-check-input" type="checkbox" id="drums" checked={muted.includes("drums")} onChange={handleMuteChange} />
                 <label class="form-check-label" >
                     Mute Drums
+                </label>
+            </div>
+
+            <div className="form-check">
+                <input className="form-check-input" type="checkbox" id="drums2" checked={muted.includes("drums2")} onChange={handleMuteChange} />
+                <label class="form-check-label">
+                    Mute Drums2
                 </label>
             </div>
         </>
